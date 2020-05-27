@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './containers/App';
+import './scss/theme/index.scss'
 import * as serviceWorker from './serviceWorker';
+import * as Sentry from '@sentry/browser';
+Sentry.init({dsn: "https://a77d0e69b1704b19a9b235b047f3805a@o369764.ingest.sentry.io/5253172"});
 
 ReactDOM.render(
   <React.StrictMode>
