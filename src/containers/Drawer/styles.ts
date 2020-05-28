@@ -1,9 +1,8 @@
 import styled from '@emotion/styled'
 
-const Container = styled.div`
-  padding: 0 15px
-`
+const Drawer = styled.div``
+
 
 export const Styled = {
-  Container
+  Drawer
 }

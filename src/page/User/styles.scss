@@ -1,0 +1,78 @@
+.user{
+  &__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__identification{
+    display: flex;
+    margin-left: 15px;
+    font-size: 26px;
+
+    .cpf{
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+
+  &__last-modified{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .label{
+      font-size: 15px;
+      text-decoration: underline;
+    }
+
+    .name{
+      font-size: 21px;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+  }
+
+  &__form-container{
+    max-height: 534px;
+    overflow-y: scroll;
+    padding-bottom: 130px;
+  }
+}
+
+.form-user{
+  &__control-devices{
+    margin-bottom: 26px;
+  }
+
+  &__devices{
+    display: flex;
+    flex-flow: row wrap;
+
+    .custom-control {
+      margin-right: 16px;
+    }
+  }
+
+  &__submit-container{
+    background: #5B66D2;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+
+    button{
+      color: #5B66D2;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 18px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

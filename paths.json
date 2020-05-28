@@ -18,11 +18,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@/*":["src/*"],
-      "@variables": ["src/scss/theme/variables/*"]
-    }
+    "baseUrl": "."
   },
   "include": [
     "src"
