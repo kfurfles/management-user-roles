@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { colors } from './../../scss/theme/variables/colors'
 
-const User = styled.div`
+const User = styled.form`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -13,6 +13,8 @@ const User = styled.div`
   height: calc(80vh);
   z-index: 1010;
   background: #fff;
+  display: flex;
+  flex-flow: column nowrap;
 `
 const Overlay = styled.div`
   position: fixed;

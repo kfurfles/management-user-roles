@@ -1,0 +1,1 @@
+export type IDevices = "QR_CODE" | "TOKEN_ID" | "SMS" | "MULTI_TOKEN" | "ELEVACAO"

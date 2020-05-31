@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import './scss/theme/index.scss'
 import * as serviceWorker from './serviceWorker';
-import * as Sentry from '@sentry/browser';
-Sentry.init({dsn: "https://a77d0e69b1704b19a9b235b047f3805a@o369764.ingest.sentry.io/5253172"});
+import { sentryInitialize } from './modules/sentry'
+import Store from './containers/Store';
+
+// firebaseApp().initialize()
+sentryInitialize()
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Store>
+      <App />
+    </Store>
   </React.StrictMode>,
   document.getElementById('root')
 );

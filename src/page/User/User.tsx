@@ -30,7 +30,7 @@ const User: React.FC = () => {
       </div>
 
       <div className="user__form-container">
-        <Form className="form-user">
+        <div className="form-user">
           <FormGroup className="form-user__control-devices">
             <FormLabel>Dispositivos</FormLabel>
 
@@ -111,12 +111,10 @@ const User: React.FC = () => {
             </FormGroup>
 
           </FormGroup>
-
-          <div className="form-user__submit-container">
-            <Button variant="light">Salvar Usuário <CheckIcon/> </Button>
-          </div>
-
-        </Form>
+        </div>
+      </div>
+      <div className="form-user__submit-container">
+        <Button variant="light">Salvar Usuário <CheckIcon/> </Button>
       </div>
     </Styled.User>
   </React.Fragment>

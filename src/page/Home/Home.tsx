@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../../components/Header';
 import { Styled } from './styles'
 import { FormControl, Button, Badge } from 'react-bootstrap'
 import { ReactComponent as AddIcon } from './../../assets/svg/add-circle.svg'
 import { ReactComponent as UpArrowIcon } from './../../assets/svg/arrow-up-right.svg'
 import './styles.scss'
+import { getUserList } from '../../modules/firebase/services';
+
+
 
 const Home = () => {
+
+  useEffect(() => {
+    // getUserList().on('value', spanshot => {
+    //   console.log(spanshot.val())
+    // })
+    
+    getUserList().subscribe(r => {
+      console.log({ r })
+    })
+    // setTimeout(() =>{
+    //   getUserList().push({}).set({
+    //     "cpf":"37874125819",
+    //     "devices":[
+    //       "QR_CODE",
+    //       "TOKEN_ID",
+    //       "SMS"
+    //     ],
+    //     "lastModification":"Moizinho",
+    //     "observations":"another text",
+    //     "password":"0-1289374",
+    //     "penumber":"012v9n837",
+    //     "qrAuthenticators":["João"]
+    //   })
+    // },3000)
+  },[])
+
   return (
     <Styled.Container>
       <Header />
