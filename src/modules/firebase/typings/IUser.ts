@@ -7,5 +7,6 @@ export interface IUser {
   observations: string,
   password: string,
   penumber: string,
-  qrAuthenticators: string[]
+  qrAuthenticators: string[],
+  id?: string
 }

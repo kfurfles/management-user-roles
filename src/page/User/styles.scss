@@ -71,6 +71,7 @@
     padding: 15px;
     margin: 0 -15px;
 
+
     button{
       color: #5B66D2;
       font-weight: bold;
@@ -79,6 +80,15 @@
       width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
+
+      svg{
+        margin-left: 16px;
+      }
+
+      &:active{
+        color: #5B66D2 !important;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss'
 import { Styled } from './styles'
 import { 
@@ -7,7 +7,6 @@ import {
   FormCheck,
   InputGroup,
   Button, 
-  Form, 
   FormGroup } from 'react-bootstrap'
 import { ReactComponent as LeftArrow} from './../../assets/svg/arrow-left.svg'
 import { ReactComponent as CheckIcon } from './../../assets/svg/check-circle.svg'
@@ -46,7 +45,7 @@ const User: React.FC = () => {
 
           <FormGroup className="form-user__control-devices">
             <FormLabel>CPF</FormLabel>
-            <FormControl type="text" placeholder="ex: xxx.xxx.xxx-xx" />
+            <FormControl required type="text" placeholder="ex: xxx.xxx.xxx-xx" />
           </FormGroup>
 
           <FormGroup className="form-user__control-devices">
@@ -56,7 +55,7 @@ const User: React.FC = () => {
 
           <FormGroup className="form-user__control-devices">
             <FormLabel>Senha</FormLabel>
-            <FormControl type="text" placeholder="ex: 258369" />
+            <FormControl required type="text" placeholder="ex: 258369" />
           </FormGroup>
 
           <FormGroup className="form-user__control-devices">
@@ -114,7 +113,7 @@ const User: React.FC = () => {
         </div>
       </div>
       <div className="form-user__submit-container">
-        <Button variant="light">Salvar Usuário <CheckIcon/> </Button>
+        <Button type="submit" variant="light">Salvar Usuário <CheckIcon/> </Button>
       </div>
     </Styled.User>
   </React.Fragment>

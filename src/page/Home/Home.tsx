@@ -1,39 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { Styled } from './styles'
-import { FormControl, Button, Badge } from 'react-bootstrap'
+import { FormControl, Button } from 'react-bootstrap'
 import { ReactComponent as AddIcon } from './../../assets/svg/add-circle.svg'
-import { ReactComponent as UpArrowIcon } from './../../assets/svg/arrow-up-right.svg'
+import Card from '../../components/Card'
 import './styles.scss'
 import { getUserList } from '../../modules/firebase/services';
-
-
+import { IUser } from 'src/modules/firebase/typings/IUser';
 
 const Home = () => {
 
-  useEffect(() => {
-    // getUserList().on('value', spanshot => {
-    //   console.log(spanshot.val())
-    // })
-    
-    getUserList().subscribe(r => {
-      console.log({ r })
+  const [users, setUser] = useState<IUser[]>([])
+
+  useEffect(() => {    
+    getUserList().subscribe(userList => {
+      setUser(userList)
     })
-    // setTimeout(() =>{
-    //   getUserList().push({}).set({
-    //     "cpf":"37874125819",
-    //     "devices":[
-    //       "QR_CODE",
-    //       "TOKEN_ID",
-    //       "SMS"
-    //     ],
-    //     "lastModification":"Moizinho",
-    //     "observations":"another text",
-    //     "password":"0-1289374",
-    //     "penumber":"012v9n837",
-    //     "qrAuthenticators":["João"]
-    //   })
-    // },3000)
   },[])
 
   return (
@@ -63,22 +45,11 @@ const Home = () => {
           </div>
 
           <ul className="users__list-users">
-            <li className="users__list-user-item">
-              <div className="user-card">
-                <div className="user-card__cpf-number">CPF: 378.741.258-19</div>
-                <div className="user-card__devices">
-                  <Badge className="user-card__device-item" variant="secondary">QR</Badge>
-                  <Badge className="user-card__device-item" variant="danger">M-TOKEN</Badge>
-                  <Badge className="user-card__device-item" variant="primary">ELEV</Badge>
-                  <Badge className="user-card__device-item" variant="success">TOKEN</Badge>
-                  <Badge className="user-card__device-item" variant="secondary">SMS</Badge>
-                </div>
-
-                <button className="user-card__go-to-user">
-                  <UpArrowIcon />
-                </button>
-              </div>
-            </li>
+            {users.map(user => (
+              <li key={user.id} className="users__list-user-item mb-3">
+                <Card {...user} />
+              </li>
+            ))}
           </ul>
         </div>
     </Styled.Container>
