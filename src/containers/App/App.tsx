@@ -7,7 +7,7 @@ function App() {
     return (
         <Styled.App>
             <Home />
-            {/* <Drawer /> */}
+            <Drawer />
         </Styled.App>
     );
 }

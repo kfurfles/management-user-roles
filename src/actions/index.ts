@@ -5,3 +5,7 @@ export {
 export {
   setUserList
 } from './users'
+
+export {
+  SetModalState
+} from './modal'

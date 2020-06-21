@@ -5,3 +5,7 @@ export  {
 export {
 
 } from './firebase'
+
+export {
+  modalActions
+} from './modal'

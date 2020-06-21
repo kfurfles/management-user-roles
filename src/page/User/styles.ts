@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
 import FormUser from './../../components/FormUser'
+import { Props } from './IProps'
 
 import { colors } from './../../scss/theme/variables/colors'
 
-const User = styled.form`
+
+const User = styled.form<Props>`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -17,15 +19,24 @@ const User = styled.form`
   background: #fff;
   display: flex;
   flex-flow: column nowrap;
+  transform: ${props => props.active ? 'translateY(0%)': 'translateY(100%)'};
+  transition: transform 225ms linear
 `
-const Overlay = styled.div`
+const Overlay = styled.div<Props>`
   position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 1000;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.16)
+  background-color: rgba(0,0,0,0.16);
+  transition: opacity 225ms linear;
+  ${(props) => {
+    return {
+      opacity: props.active ? 1: 0,
+      visibility: props.active ? 'visible' : 'hidden'
+    }
+  }}
 `
 
 const User__Form = styled(FormUser)`

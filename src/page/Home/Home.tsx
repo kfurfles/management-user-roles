@@ -5,17 +5,24 @@ import { FormControl } from 'react-bootstrap'
 import { ReactComponent as AddIcon } from './../../assets/svg/add-circle.svg'
 import Card from '../../components/Card'
 import { getUserList } from '../../modules/firebase/services';
-import { IUser } from 'src/modules/firebase/typings/IUser';
+import { IUser } from '../../modules/firebase/typings/IUser';
+import { useDispatch } from 'react-redux';
+import { SetModalState } from '../../actions';
 
 const Home = () => {
 
   const [users, setUser] = useState<IUser[]>([])
+  const dispatch = useDispatch()
 
   useEffect(() => {    
     getUserList().subscribe(userList => {
       setUser(userList)
     })
   },[])
+
+  const editUser = (user: IUser) => {
+    dispatch(SetModalState('active'))
+  }
 
   return (
     <Styled.Container>
@@ -46,7 +53,7 @@ const Home = () => {
         <Styled.User__List_Users>
           {users.map(user => (
             <Styled.User__List_item key={user.id} className="mb-3">
-              <Card {...user} />
+              <Card {...user} onClick={() => editUser(user)} />
             </Styled.User__List_item>
           ))}
         </Styled.User__List_Users>
