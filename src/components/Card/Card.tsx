@@ -1,7 +1,6 @@
-import React, { PropsWithChildren } from 'react';
-import Badge from './../Badge'
+import React from 'react';
 import { ReactComponent as UpArrowIcon } from '../../assets/svg/arrow-up-right.svg'
-import './style.scss'
+import { Styled } from './styled'
 import { IDevices } from '../../modules/firebase/typings/IDevices';
 
 interface Props  {
@@ -14,24 +13,18 @@ const Card: React.FC<Props> = ({ cpf, devices }) => {
   console.log(devices)
 
   return (
-  <div className="user-card">
-    <div className="user-card__cpf-number"><b>CPF</b>: {cpf}</div>
-    <div className="user-card__devices">
-      {devices.map(device => <Badge 
-        className="user-card__device-item"
+  <Styled.Card>
+    <Styled.Card__Cpf_Number><b>CPF</b>: {cpf}</Styled.Card__Cpf_Number>
+    <Styled.Card__Devices>
+      {devices.map(device => <Styled.Card__Badge
         key={device} 
         type={device} />)}
-      {/* <Badge className="user-card__device-item" variant="secondary">QR</Badge>
-      <Badge className="user-card__device-item" variant="danger">M-TOKEN</Badge>
-      <Badge className="user-card__device-item" variant="primary">ELEV</Badge>
-      <Badge className="user-card__device-item" variant="success">TOKEN</Badge>
-      <Badge className="user-card__device-item" variant="secondary">SMS</Badge> */}
-    </div>
+    </Styled.Card__Devices>
 
-    <button className="user-card__go-to-user">
+    <Styled.Card_Go_To_User>
       <UpArrowIcon />
-    </button>
-  </div>);
+    </Styled.Card_Go_To_User>
+  </Styled.Card>);
 }
 
 export default Card;
